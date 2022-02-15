@@ -20,30 +20,14 @@
 ********************************************************************************************/
 
 #include "raylib.h"
+#include "Game.h"
 
 int main() {
-    InitWindow(800, 600, "My First Game!");
+    Game game;
 
-    Vector2 ballPosition = { 400.0f, 300.0f };
-
-    SetTargetFPS(60);
-
-    while (!WindowShouldClose()) {
-        BeginDrawing();
-        // Clears the screen and makes it black
-        ClearBackground(BLACK);
-
-        // Grabs the position of the mouse
-        Vector2 mousePosition = GetMousePosition();
-
-        ballPosition = mousePosition;
-
-        DrawCircleV(ballPosition, 20.0f, BLUE);
-
-        EndDrawing();
-    }
-
-    CloseWindow();
+    game.initialise();
+    game.runLoop();
+    game.shutDown();
 
     return 0;
 }
