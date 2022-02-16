@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "Agent.h"
 
 class Game {
 public:
@@ -15,8 +16,10 @@ private:
     Vector2 _ballPosition = { 0.0f, 0.0f };
     Vector2 _mousePosition = { 0.0f, 0.0f };
 
+    Agent* player;
+
     // Helper functions for the loop
     void processInput();
-    void updateGame();
+    void updateGame(float deltaTime);
     void generateOutput();
 };
