@@ -18,6 +18,10 @@ bool Game::initialise() {
     followMouseBehavior = new FollowMouseBehavior();
     player->addBehavior(followMouseBehavior);
     player->_maxSpeed = 100.0f;
+
+    redEnemy = new Agent({760, 20}, 20.0f, RED);
+    seekBehavior = new SeekBehavior(player);
+    redEnemy->addBehavior(seekBehavior);
 }
 
 void Game::runLoop() {
@@ -38,11 +42,8 @@ void Game::generateOutput() {
     // Clears the screen
     ClearBackground(BLACK);
 
-    // Draw Here!
-
-    // Draw the ball based on mouse position
-    //DrawCircleV(_ballPosition, 20.0f, BLUE);
     player->draw();
+    redEnemy->draw();
 
     EndDrawing();
 }
@@ -52,7 +53,6 @@ void Game::processInput() {
 }
 
 void Game::updateGame(float deltaTime) {
-    //_ballPosition = _mousePosition;
-    //player->setPosition(_mousePosition);
     player->update(deltaTime);
+    redEnemy->update(deltaTime);
 }

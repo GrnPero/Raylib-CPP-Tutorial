@@ -2,8 +2,8 @@
 #include "Agent.h"
 #include "raymath.h"
 
-SeekBehavior::SeekBehavior(Agent *agent) :
-    _target(target) 
+SeekBehavior::SeekBehavior(Agent *target) :
+    _target (target) 
 {
 
 }

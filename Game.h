@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "Agent.h"
 #include "FollowMouseBehavior.h"
+#include "SeekBehavior.h"
 
 class Game {
 public:
@@ -19,6 +20,9 @@ private:
 
     Agent* player;
     FollowMouseBehavior* followMouseBehavior;
+
+    Agent* redEnemy;
+    SeekBehavior* seekBehavior;
 
     // Helper functions for the loop
     void processInput();
