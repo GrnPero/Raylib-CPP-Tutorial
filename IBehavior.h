@@ -5,6 +5,7 @@
 class Agent;
 
 class IBehavior {
+public:
     // Empty Constructor and Destructor for the base class
     IBehavior() {}
     ~IBehavior() {}

@@ -14,6 +14,10 @@ bool Game::initialise() {
     InitWindow(800, 600, "My First Game!");
 
     player = new Agent({150, 150}, 20.0f, BLUE);
+
+    followMouseBehavior = new FollowMouseBehavior();
+    player->addBehavior(followMouseBehavior);
+    player->_maxSpeed = 100.0f;
 }
 
 void Game::runLoop() {
@@ -44,11 +48,11 @@ void Game::generateOutput() {
 }
 
 void Game::processInput() {
-    _mousePosition = GetMousePosition();
+    //_mousePosition = GetMousePosition();
 }
 
 void Game::updateGame(float deltaTime) {
     //_ballPosition = _mousePosition;
-    player->setPosition(_mousePosition);
+    //player->setPosition(_mousePosition);
     player->update(deltaTime);
 }

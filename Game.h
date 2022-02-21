@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "Agent.h"
+#include "FollowMouseBehavior.h"
 
 class Game {
 public:
@@ -17,6 +18,7 @@ private:
     Vector2 _mousePosition = { 0.0f, 0.0f };
 
     Agent* player;
+    FollowMouseBehavior* followMouseBehavior;
 
     // Helper functions for the loop
     void processInput();

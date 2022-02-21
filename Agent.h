@@ -1,6 +1,9 @@
 #pragma once
 
 #include "raylib.h"
+#include <list>
+
+class IBehavior;
 
 class Agent {
 public:
@@ -22,8 +25,12 @@ public:
     void setPosition(Vector2 pos);
     Vector2 getPosition();
 
+    void addBehavior(IBehavior* behavior);
+
 private:
     Vector2 _position {0.0f, 0.0f};
     float _radius {5.0f};
     Color _color {BLUE};
+
+    std::list<IBehavior*> _behaviors;
 };
