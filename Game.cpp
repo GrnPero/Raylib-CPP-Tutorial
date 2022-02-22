@@ -22,6 +22,10 @@ bool Game::initialise() {
     redEnemy = new Agent({760, 20}, 20.0f, RED);
     seekBehavior = new SeekBehavior(player);
     redEnemy->addBehavior(seekBehavior);
+
+    shyEnemy = new Agent({400,300}, 20.0f, YELLOW);
+    fleeBehavior = new FleeBehavior(player);
+    shyEnemy->addBehavior(fleeBehavior);
 }
 
 void Game::runLoop() {
@@ -44,6 +48,7 @@ void Game::generateOutput() {
 
     player->draw();
     redEnemy->draw();
+    shyEnemy->draw();
 
     EndDrawing();
 }
@@ -55,4 +60,5 @@ void Game::processInput() {
 void Game::updateGame(float deltaTime) {
     player->update(deltaTime);
     redEnemy->update(deltaTime);
+    shyEnemy->update(deltaTime);
 }

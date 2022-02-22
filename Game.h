@@ -2,6 +2,7 @@
 #include "Agent.h"
 #include "FollowMouseBehavior.h"
 #include "SeekBehavior.h"
+#include "FleeBehavior.h"
 
 class Game {
 public:
@@ -23,6 +24,9 @@ private:
 
     Agent* redEnemy;
     SeekBehavior* seekBehavior;
+
+    Agent* shyEnemy;
+    FleeBehavior* fleeBehavior;
 
     // Helper functions for the loop
     void processInput();
