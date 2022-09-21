@@ -3,13 +3,19 @@
 #include "FollowMouseBehavior.h"
 #include "SeekBehavior.h"
 #include "FleeBehavior.h"
+#include "FiniteStateMachine.h"
+#include "IdleState.h"
+#include "ChaseState.h"
+#include "Transition.h"
+#include "WithinRangeCondition.h"
+#include "OutOfRangeCondition.h"
 
 class Game {
 public:
     Game();
     ~Game();
     // Init the game
-    bool initialise();
+    void initialise();
     // Runs the game loop
     void runLoop();
     // Closes the game
@@ -32,4 +38,12 @@ private:
     void processInput();
     void updateGame(float deltaTime);
     void generateOutput();
+
+    IdleState* idleState = new IdleState();
+    ChaseState* chaseState;
+    FiniteStateMachine enemyBehavior;
+    WithinRangeCondition* withinRangeCondition;
+    OutOfRangeCondition* outOfRangeCondition;
+    Transition* toChaseTransition;
+    Transition* toIdleTransition;
 };
